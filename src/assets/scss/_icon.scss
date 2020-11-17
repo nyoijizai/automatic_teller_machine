@@ -1,0 +1,28 @@
+.icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: -0.3em;
+	display: inline-block;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&-no-gutters {
+		width: 1em;
+		height: 1em;
+		vertical-align: -0.2em;
+		margin-right: $spacer / 2;
+	}
+
+	&-back {
+		background-image: url(../img/ic_back@2x.png);
+	}
+	&-quit {
+		background-image: url(../img/ic_off@2x.png);
+	}
+	&-online {
+		background-image: url(../img/ic_online@2x.png);
+	}
+	&-offline {
+		background-image: url(../img/ic_offline@2x.png);
+	}
+}

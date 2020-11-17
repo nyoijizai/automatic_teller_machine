@@ -1,0 +1,13 @@
+//
+// Basic tzu table
+//
+
+.tzu-table {
+	&,
+	tr,
+	th,
+	&-row {
+		color: $white !important;
+		background-color: transparent !important;
+	}
+}

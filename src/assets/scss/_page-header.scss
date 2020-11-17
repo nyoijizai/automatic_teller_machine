@@ -1,0 +1,15 @@
+.page-header {
+	display: flex;
+	align-items: center;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+
+	button {
+		color: $white !important;
+		font-size: $font-size-md !important;
+
+		& + button {
+			margin-left: $spacer * 2 !important;
+		}
+	}
+}
