@@ -1,3 +1,5 @@
+
+import { base } from "./base";
 import request from "@/utils/http";
 /**
  * 登录接口
@@ -5,7 +7,7 @@ import request from "@/utils/http";
 
 // 身份证
 function ID(data) {
-  return request.post("/api/platform/base/idCardNoLogin", data);
+  return request.post(`${base}/api/platform/base/idCardNoLogin`, data);
 }
 
 // 校园卡

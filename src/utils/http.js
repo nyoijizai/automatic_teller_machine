@@ -1,6 +1,6 @@
 import axios from "axios";
 // import { base } from "@/api/base";
-import { Message } from "element-ui";
+// import { Message } from "element-ui";
 // import store from "@/store";
 // import { removeStorage } from "@/utils/session";
 
@@ -78,11 +78,7 @@ response => {
     return res;
   }
   if (res.code !== 200) {
-    Message({
-      message: res.msg || "操作失败",
-      type: "error",
-      duration: 3 * 1000
-    });
+    console.log(res.msg || "操作失败")
     return Promise.reject(new Error(res || "Error"));
   } else {
     return res.data;
@@ -91,17 +87,9 @@ response => {
 error => {
   console.log(error); // for debug
   if (error && error.response && error.response.status === 401) {
-    Message({
-      message: "token失效，或者登录异常！",
-      type: "error",
-      duration: 3 * 1000
-    });
+    console.log("error")
   } else {
-    Message({
-      message: error.message,
-      type: "error",
-      duration: 3 * 1000
-    });
+    console.log(error.message || "操作失败")
   }
   return Promise.reject(error);
 }

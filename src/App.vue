@@ -7,10 +7,16 @@
 </template>
 
 <script>
+  import {IdentifyID} from "@/api/login"
 export default {
   components: {
     tzuCard: () => import("@/components/Card"),
     tzuPageHeader: () => import("@/components/PageHeader")
+  },
+  created() {
+    IdentifyID().then(res=> {
+      console.log(res)
+    })
   }
 };
 </script>
