@@ -1,0 +1,40 @@
+.tzu-row-grid {
+	display: grid;
+	grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  align-content: stretch;
+  justify-content: stretch;
+  
+  each(range(6), {
+    &-@{value} {
+      grid-template-columns: repeat(@value, 1fr);
+    }
+  });
+
+ .item {
+		height: 0;
+		overflow: hidden;
+		position: relative;
+		padding-bottom: 100%;
+		background-color: @text-color;
+		border-radius: @border-radius-base;
+
+		.wrap {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			position: absolute;
+			text-align: center;
+			align-items: center;
+			justify-content: center;
+			flex-flow: column nowrap;
+		}
+
+		&-label {
+			margin-top: 24px;
+			color: #333333;
+		}
+	}
+}

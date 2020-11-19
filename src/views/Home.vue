@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <tzu-card :user="userData" :span="3"></tzu-card>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
   components: {
-    HelloWorld
+    tzuCard: () => import("@/components/Card")
+  },
+  data() {
+    return {
+      userData: [
+        {
+          name: "马保国",
+          id: 498452846,
+          class: "17 计科（嵌入）2 班",
+          department: "计算机科学与技术学院",
+          specialty: "计算机科学与技术（苏软嵌入）"
+        }
+      ]
+    };
   }
-}
+};
 </script>
