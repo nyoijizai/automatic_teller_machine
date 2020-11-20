@@ -18,8 +18,8 @@ const routes = [
 
 const router = new VueRouter({
 	mode: 'history',
+	base: '/printer',
 	// base: process.env.BASE_URL,
-	base: "/printer",
 	routes,
 });
 
