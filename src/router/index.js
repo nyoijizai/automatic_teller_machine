@@ -12,7 +12,34 @@ const routes = [
 	{
 		path: '/login',
 		name: 'Login',
-		component: () => import('@/views/login.vue'),
+		component: () => import('@/views/Login/login.vue'),
+		beforeEnter: (to, from, next) => {
+			const data = localStorage.getItem('Token');
+
+			if (Boolean(data)) {
+				next({ name: 'Home' });
+			} else next();
+		},
+	},
+	{
+		path: '/mode',
+		name: 'mode',
+		component: () => import('@/views/Login/template.vue'),
+	},
+	{
+		path: '/education',
+		name: 'EducationCertificate',
+		component: () => import('@/views/certificate/education.vue'),
+	},
+	{
+		path: '/honor',
+		name: 'honorCertificate',
+		component: () => import('@/views/certificate/honor.vue'),
+	},
+	{
+		path: '/template',
+		name: 'Template',
+		component: () => import('@/views/certificate/template.vue'),
 	},
 ];
 

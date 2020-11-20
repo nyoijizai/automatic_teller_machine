@@ -8,6 +8,7 @@
 		display: flex;
 		flex-flow: row nowrap;
 		margin-bottom: @spacer*3.25;
+		color: #colors[white] !important;
 
 		.meta {
 			flex: 1;
@@ -39,5 +40,7 @@
 
 	&-body {
 		overflow-y: scroll;
+		max-height: #containers[md];
+		border-radius: @border-radius-base;
 	}
 }

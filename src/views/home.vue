@@ -1,24 +1,33 @@
 <template>
 	<section class="home tzu-card">
 		<div class="tzu-card-header">
-			<a-avatar :size="67" :src="require(`@/assets/img/user_avatar@2x.png`)" />
+			<a-avatar
+				:size="67"
+				:src="
+					userData.icon
+						? userData.icon
+						: require(`@/assets/img/user_avatar@2x.png`)
+				"
+			/>
 			<div class="meta">
 				<div class="meta-item">
-					<span class="title">张三</span>
-					<span>486871567</span>
+					<span class="title">{{ userData.userFullName }}</span>
+					<span>{{ userData.userCode }}</span>
 				</div>
 				<div class="meta-item">
-					<span>计算机科学与技术学院</span>
-					<span>计算机科学与技术（苏软嵌入）</span>
-					<span>17 计科（嵌入）2 班</span>
+					<span v-if="userData.unitName">{{ userData.unitName }}</span>
+					<span v-if="userData.majorName">{{ userData.majorName }}</span>
+					<span v-if="userData.teamsName">{{ userData.teamsName }}</span>
 				</div>
-			</div>
-			<div class="action">
-				<a-button block size="large" shape="round" type="danger">打印</a-button>
 			</div>
 		</div>
 		<div class="tzu-card-body tzu-grid tzu-grid-3">
-			<div class="grid-item tzu-card" v-for="(item, index) in menuConfig">
+			<router-link
+				:key="index"
+				class="grid-item tzu-card"
+				v-for="(item, index) in menuConfig"
+				:to="{ name: item.pathName }"
+			>
 				<div class="grid-item-wrap">
 					<a-avatar
 						:size="60"
@@ -27,15 +36,20 @@
 					/>
 					<span class="item-label">{{ item.label }}</span>
 				</div>
-			</div>
+			</router-link>
 		</div>
 	</section>
 </template>
 
 <script>
 export default {
+	created() {
+		const user = JSON.parse(localStorage.getItem('User'));
+		this.userData = user;
+	},
 	data() {
 		return {
+			userData: {},
 			menuConfig: [
 				{
 					mode: 'ID',
@@ -43,14 +57,14 @@ export default {
 					icon: 'icon_user_grade',
 				},
 				{
-					mode: 'IC',
 					label: '在读证明打印',
 					icon: 'icon_user_postgraduate',
+					pathName: 'EducationCertificate',
 				},
 				{
-					mode: 'AP',
 					label: '获奖证明打印',
 					icon: 'icon_user_glory',
+					pathName: 'honorCertificate',
 				},
 				{
 					mode: 'QR',

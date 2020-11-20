@@ -4,19 +4,30 @@ import store from './store';
 import router from './router';
 import '@/assets/less/index.less';
 
-import { Layout } from 'ant-design-vue';
-import { Avatar } from 'ant-design-vue';
-import { Spin } from 'ant-design-vue';
-import { Icon } from 'ant-design-vue';
-import { Button } from 'ant-design-vue';
+import {
+	Layout,
+	Avatar,
+	message,
+	Spin,
+	Icon,
+	Button,
+	List,
+} from 'ant-design-vue';
 
 Vue.use(Layout);
 Vue.use(Avatar);
 Vue.use(Spin);
 Vue.use(Icon);
 Vue.use(Button);
+Vue.use(List);
 
 Vue.config.productionTip = false;
+Vue.prototype.$message = message;
+
+message.config({
+	duration: 4,
+	maxCount: 1,
+});
 
 new Vue({
 	router,

@@ -1,6 +1,11 @@
 <template>
 	<div class="login tzu-grid tzu-grid-2">
-		<div class="grid-item tzu-card" v-for="(item, index) in menuConfig">
+		<router-link
+			:key="index"
+			class="grid-item tzu-card"
+			v-for="(item, index) in menuConfig"
+			:to="{ name: 'Template', query: { mode: item.mode } }"
+		>
 			<div class="grid-item-wrap">
 				<a-avatar
 					:size="76"
@@ -9,7 +14,7 @@
 				/>
 				<span class="item-label">{{ item.label }}</span>
 			</div>
-		</div>
+		</router-link>
 	</div>
 </template>
 
