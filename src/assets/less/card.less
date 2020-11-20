@@ -1,0 +1,43 @@
+.tzu-card {
+	overflow: hidden;
+	border-radius: @border-radius-base;
+	background-color: fade(#colors[gray-100], 42%);
+
+	&-header {
+		flex: auto;
+		display: flex;
+		flex-flow: row nowrap;
+		margin-bottom: @spacer*3.25;
+
+		.meta {
+			flex: 1;
+			display: flex;
+			flex-flow: column wrap;
+			margin-left: @spacer*.875;
+			justify-content: space-between;
+
+			&-item {
+				span {
+					&.title {
+						font-size: @spacer*1.375;
+					}
+
+					&:not(:last-child) {
+						margin-right: @spacer*1.125;
+					}
+				}
+			}
+		}
+
+		.action {
+			display: flex;
+			align-items: center;
+			min-width: @spacer*10;
+			margin-left: @spacer*3;
+		}
+	}
+
+	&-body {
+		overflow-y: scroll;
+	}
+}

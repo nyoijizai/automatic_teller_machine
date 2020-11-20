@@ -1,0 +1,32 @@
+.tzu-grid {
+	display: grid;
+  grid-gap: @grid-gap;
+  
+  each(range(@grid-column), {
+    &-@{value} {
+      grid-template-columns: repeat(@value, 1fr);
+    }
+  });
+}
+
+.grid-item {
+	height: 0;
+	position: relative;
+	padding-bottom: 100%;
+
+	&-wrap {
+    top: 0;
+		left: 0;
+		right: 0;
+    bottom: 0;
+    display: flex;
+		position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+
+    .item-label{
+      margin-top: @spacer*1.5;
+    }
+	}
+}
