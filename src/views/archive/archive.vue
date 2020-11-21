@@ -1,5 +1,5 @@
 <template>
-	<section class="home tzu-card">
+	<section class="archive tzu-card">
 		<div class="tzu-card-header">
 			<a-avatar
 				:size="67"
@@ -26,7 +26,7 @@
 				:key="index"
 				class="grid-item tzu-card"
 				v-for="(item, index) in menuConfig"
-				:to="{ name: item.pathName }"
+				:to="{ name: 'ArchiveTemplate', query: { mode: item.mode } }"
 			>
 				<div class="grid-item-wrap">
 					<a-avatar
@@ -52,29 +52,19 @@ export default {
 			userData: {},
 			menuConfig: [
 				{
-					label: '成绩单查询打印',
-					icon: 'icon_user_grade',
-					pathName: 'Archive',
+					mode: 'archive',
+					label: '成绩档案表',
+					icon: 'icon_report_file',
 				},
 				{
-					label: '在读证明打印',
-					icon: 'icon_user_postgraduate',
-					pathName: 'EducationCertificate',
+					mode: 'original',
+					label: '成绩单(原始)',
+					icon: 'icon_report_original',
 				},
 				{
-					label: '获奖证明打印',
-					icon: 'icon_user_glory',
-					pathName: 'honorCertificate',
-				},
-				{
-					mode: 'QR',
-					label: '图书借阅查询',
-					icon: 'icon_user_library',
-				},
-				{
-					label: '一卡通查询',
-					icon: 'icon_user_ecard2',
-					pathName: 'Union',
+					mode: 'valid',
+					label: '成绩单(有效)',
+					icon: 'icon_report_effective',
 				},
 			],
 		};
@@ -92,7 +82,7 @@ export default {
 	lg: 960px;
 }
 
-.home {
+.archive {
 	display: flex;
 	width: #containers[lg];
 	flex-flow: column nowrap;
@@ -100,6 +90,10 @@ export default {
 
 	.tzu-card {
 		&-body {
+			&.tzu-grid {
+				grid-template-rows: repeat(2, 1fr);
+			}
+
 			.grid-item {
 				color: #colors[gray-200];
 				background-color: #colors[white];

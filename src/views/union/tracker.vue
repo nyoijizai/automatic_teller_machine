@@ -20,6 +20,18 @@
 					<span v-if="userData.teamsName">{{ userData.teamsName }}</span>
 				</div>
 			</div>
+			<div class="actions">
+				<a-select @change="handleChange">
+					<a-select-option
+						:value="item.transDesc"
+						:key="index"
+						v-for="(item, index) in consumptionType"
+					>
+						{{ item.transDesc }}
+					</a-select-option>
+				</a-select>
+				<a-month-picker placeholder="Select month" @change="handleChange" />
+			</div>
 		</div>
 		<div class="tzu-card-body">
 			<a-list item-layout="horizontal" :data-source="scholarshipData">
@@ -53,33 +65,40 @@
 
 <script>
 // 必需
-import { IdentifyScholarship } from '@/api/certificate';
+import {
+	queryUnionConsumptionType,
+	queryUnionConsumptionLog,
+} from '@/api/union';
 
 export default {
 	created() {
+		// 查询消费类型
+		queryUnionConsumptionType().then((res) => {
+			this.consumptionType = res.map((arg) => {
+				return {
+					...arg,
+				};
+			});
+		});
 		// 获取数据
 		this.getData();
 	},
 	data() {
 		return {
 			userData: {},
+			consumptionType: [],
 			scholarshipData: [],
-			hierarchy: {
-				1: '国家级',
-				2: '省部级',
-				3: '市厅级',
-				4: '校级',
-				5: '院级',
-			},
 		};
 	},
 	methods: {
 		// 初始化数据
-		getData() {
+		getData(type, date) {
 			const user = JSON.parse(localStorage.getItem('User'));
 			this.userData = user;
-			// 获取荣誉信息
-			IdentifyScholarship().then((res) => {
+			return false;
+			// 获取交易记录
+			queryUnionConsumptionLog().then((res) => {
+				return;
 				this.scholarshipData = res.studentAward.map((args) => {
 					return {
 						...args,
@@ -88,6 +107,11 @@ export default {
 					};
 				});
 			});
+		},
+
+		// 切换选项
+		handleChange(value) {
+			console.log(value);
 		},
 	},
 };

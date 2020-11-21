@@ -12,14 +12,26 @@ import {
 	Icon,
 	Button,
 	List,
+	Table,
+	Descriptions,
+	Divider,
+	Skeleton,
+	Select,
+	DatePicker,
 } from 'ant-design-vue';
 
 Vue.use(Layout);
 Vue.use(Avatar);
 Vue.use(Spin);
+Vue.use(Select);
 Vue.use(Icon);
 Vue.use(Button);
 Vue.use(List);
+Vue.use(Table);
+Vue.use(Divider);
+Vue.use(Skeleton);
+Vue.use(DatePicker);
+Vue.use(Descriptions);
 
 Vue.config.productionTip = false;
 Vue.prototype.$message = message;

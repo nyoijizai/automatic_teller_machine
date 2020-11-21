@@ -41,6 +41,31 @@ const routes = [
 		name: 'Template',
 		component: () => import('@/views/certificate/template.vue'),
 	},
+	{
+		path: '/archive',
+		name: 'Archive',
+		component: () => import('@/views/archive/archive.vue'),
+	},
+	{
+		path: '/reportCard',
+		name: 'ArchiveTemplate',
+		component: () => import('@/views/archive/template.vue'),
+	},
+	{
+		path: '/union',
+		name: 'Union',
+		component: () => import('@/views/union/union.vue'),
+	},
+	{
+		path: '/information',
+		name: 'UnionInformation',
+		component: () => import('@/views/union/information.vue'),
+	},
+	{
+		path: '/tracker',
+		name: 'UnionTracker',
+		component: () => import('@/views/union/tracker.vue'),
+	},
 ];
 
 const router = new VueRouter({

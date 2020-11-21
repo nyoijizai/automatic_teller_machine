@@ -1,5 +1,5 @@
 <template>
-	<section class="home tzu-card">
+	<section class="union tzu-card">
 		<div class="tzu-card-header">
 			<a-avatar
 				:size="67"
@@ -52,29 +52,14 @@ export default {
 			userData: {},
 			menuConfig: [
 				{
-					label: '成绩单查询打印',
-					icon: 'icon_user_grade',
-					pathName: 'Archive',
+					label: '一卡通信息查询',
+					pathName: 'UnionInformation',
+					icon: 'icon_union_seek2',
 				},
 				{
-					label: '在读证明打印',
-					icon: 'icon_user_postgraduate',
-					pathName: 'EducationCertificate',
-				},
-				{
-					label: '获奖证明打印',
-					icon: 'icon_user_glory',
-					pathName: 'honorCertificate',
-				},
-				{
-					mode: 'QR',
-					label: '图书借阅查询',
-					icon: 'icon_user_library',
-				},
-				{
-					label: '一卡通查询',
-					icon: 'icon_user_ecard2',
-					pathName: 'Union',
+					label: '一卡通消费记录',
+					pathName: 'UnionTracker',
+					icon: 'icon_union_record2',
 				},
 			],
 		};
@@ -92,7 +77,7 @@ export default {
 	lg: 960px;
 }
 
-.home {
+.union {
 	display: flex;
 	width: #containers[lg];
 	flex-flow: column nowrap;
@@ -100,6 +85,10 @@ export default {
 
 	.tzu-card {
 		&-body {
+			&.tzu-grid {
+				grid-template-rows: repeat(2, 1fr);
+			}
+
 			.grid-item {
 				color: #colors[gray-200];
 				background-color: #colors[white];
