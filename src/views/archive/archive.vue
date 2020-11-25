@@ -26,7 +26,10 @@
 				:key="index"
 				class="grid-item tzu-card"
 				v-for="(item, index) in menuConfig"
-				:to="{ name: 'ArchiveTemplate', query: { mode: item.mode } }"
+				:to="{
+					name: 'ArchiveTemplate',
+					query: { mode: item.mode, studentNumber: userData.userCode },
+				}"
 			>
 				<div class="grid-item-wrap">
 					<a-avatar

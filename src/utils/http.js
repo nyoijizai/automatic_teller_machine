@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { message } from 'ant-design-vue';
+
 // import { base } from "@/api/base";
 // import store from "@/store";
 // import { removeStorage } from "@/utils/session";
@@ -35,6 +37,7 @@ request.interceptors.request.use(
 		// 老師：18888880018 / 019729
 		// 學生：18888880080 / 019810
 		// console.log(error); // for debug
+		message.error(error);
 		return Promise.reject(error);
 	}
 );
@@ -77,18 +80,18 @@ request.interceptors.response.use(
 			return res;
 		}
 		if (res.code !== 200) {
-			console.log(res.msg || '操作失败');
+			message.error(res.msg || '操作失败');
 			return Promise.reject(new Error(res || 'Error'));
 		} else {
 			return res.data;
 		}
 	},
 	(error) => {
-		console.log(error); // for debug
+		message.error(error); // for debug
 		if (error && error.response && error.response.status === 401) {
-			console.log('error');
+			message.error('error');
 		} else {
-			console.log(error.message || '操作失败');
+			message.error(error.message || '操作失败');
 		}
 		return Promise.reject(error);
 	}

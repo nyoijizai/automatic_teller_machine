@@ -10,9 +10,14 @@ const routes = [
 		component: () => import('@/views/home.vue'),
 	},
 	{
+		path: '/print',
+		name: 'Print',
+		component: () => import('@/views/template.vue'),
+	},
+	{
 		path: '/login',
 		name: 'Login',
-		component: () => import('@/views/Login/login.vue'),
+		component: () => import('@/views/login/login.vue'),
 		beforeEnter: (to, from, next) => {
 			const data = localStorage.getItem('Token');
 
@@ -24,7 +29,7 @@ const routes = [
 	{
 		path: '/mode',
 		name: 'mode',
-		component: () => import('@/views/Login/template.vue'),
+		component: () => import('@/views/login/template.vue'),
 	},
 	{
 		path: '/education',
@@ -65,6 +70,11 @@ const routes = [
 		path: '/tracker',
 		name: 'UnionTracker',
 		component: () => import('@/views/union/tracker.vue'),
+	},
+	{
+		path: '/library',
+		name: 'Library',
+		component: () => import('@/views/library/transcript.vue'),
 	},
 ];
 

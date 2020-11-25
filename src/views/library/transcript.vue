@@ -1,5 +1,5 @@
 <template>
-	<section class="tracker tzu-card">
+	<section class="wrapper tzu-card">
 		<div class="tzu-card-header">
 			<a-avatar
 				:size="67"
@@ -21,15 +21,6 @@
 				</div>
 			</div>
 			<div class="actions">
-				<a-select size="large" placeholder="交易类型" @change="handleChange">
-					<a-select-option
-						:key="index"
-						:value="item.transDesc"
-						v-for="(item, index) in consumptionType"
-					>
-						{{ item.transDesc }}
-					</a-select-option>
-				</a-select>
 				<a-month-picker
 					size="large"
 					placeholder="按月查询"
@@ -138,7 +129,7 @@ export default {
 	lg: 960px;
 }
 
-.tracker {
+.wrapper {
 	display: flex;
 	width: #containers[lg];
 	flex-flow: column nowrap;

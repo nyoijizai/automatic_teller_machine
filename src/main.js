@@ -20,6 +20,8 @@ import {
 	DatePicker,
 } from 'ant-design-vue';
 
+Vue.config.productionTip = false;
+Vue.prototype.$message = message;
 Vue.use(Layout);
 Vue.use(Avatar);
 Vue.use(Spin);
@@ -32,9 +34,6 @@ Vue.use(Divider);
 Vue.use(Skeleton);
 Vue.use(DatePicker);
 Vue.use(Descriptions);
-
-Vue.config.productionTip = false;
-Vue.prototype.$message = message;
 
 message.config({
 	duration: 4,

@@ -67,9 +67,9 @@ export default {
 					pathName: 'honorCertificate',
 				},
 				{
-					mode: 'QR',
 					label: '图书借阅查询',
 					icon: 'icon_user_library',
+					pathName: 'Library',
 				},
 				{
 					label: '一卡通查询',
