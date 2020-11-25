@@ -7,15 +7,15 @@ function resolve(dir) {
 module.exports = {
 	publicPath:
 		process.env.NODE_ENV === 'production'
-			? '/pinter/'
+			? '/printer/'
 			: process.env.NODE_ENV === 'test'
-			? '/pinter/'
+			? '/printer/'
 			: '/',
 	outputDir:
 		process.env.NODE_ENV === 'production'
-			? 'pinter-dist'
+			? 'printer-dist'
 			: process.env.NODE_ENV === 'test'
-			? 'pinter_test/pinter/'
+			? 'printer_test/printer/'
 			: 'dev',
 	assetsDir: 'static',
 	lintOnSave: process.env.NODE_ENV === 'development',
