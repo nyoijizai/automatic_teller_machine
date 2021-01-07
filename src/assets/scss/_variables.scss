@@ -1,0 +1,252 @@
+// 变量
+//
+// 变量遵循 `$component-state-property-size` 公式命名。
+// 例如 $nav-link-disabled-color 和 $modal-content-box-shadow-xs
+
+// 颜色
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$gray-1000: #131313 !default;
+$black: #000 !default;
+
+// fusv-disable
+$grays: (
+ '100': $gray-100,
+ '200': $gray-200,
+ '300': $gray-300,
+ '400': $gray-400,
+ '500': $gray-500,
+ '600': $gray-600,
+ '700': $gray-700,
+ '800': $gray-800,
+ '900': $gray-900,
+ '1000': $gray-1000,
+) !default;
+// fusv-enable
+
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+
+// scss-docs-start colors-map
+$colors: (
+ 'blue': $blue,
+ 'indigo': $indigo,
+ 'purple': $purple,
+ 'pink': $pink,
+ 'red': $red,
+ 'orange': $orange,
+ 'yellow': $yellow,
+ 'green': $green,
+ 'teal': $teal,
+ 'cyan': $cyan,
+ 'white': $white,
+ 'gray': $gray-600,
+ 'gray-dark': $gray-800,
+) !default;
+// scss-docs-end colors-map
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-900 !default;
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+ 'primary': $primary,
+ 'secondary': $secondary,
+ 'success': $success,
+ 'info': $info,
+ 'warning': $warning,
+ 'danger': $danger,
+ 'light': $light,
+ 'dark': $dark,
+) !default;
+// scss-docs-end theme-colors-map
+
+// Body
+//
+// `<body>` 元素的配置
+
+$body-bg: $white !default;
+$body-color: $white !default;
+$body-text-align: null !default;
+
+// 选项
+//
+// 通过启用或者禁用可选功能快速修改全局样式
+
+$enable-important-utilities: true !default;
+
+// 间距
+//
+// 通过修改下面的值控制默认的间距样式
+
+$spacer: 1rem !default;
+$spacers: (
+ 0: 0,
+ 1: $spacer / 4,
+ 2: $spacer / 2,
+ 3: $spacer,
+ 4: $spacer * 1.25,
+ 5: $spacer * 1.5,
+ 6: $spacer * 3,
+ 7: $spacer * 3.125,
+) !default;
+
+// 网格媒体查询断点
+//
+// 用于媒体查询。定义自适应布局的最小尺寸，以适应不同的屏幕尺寸
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+ xs: 0,
+ sm: 576px,
+ md: 768px,
+ lg: 960px,
+ xl: 1200px,
+ xxl: 1400px,
+) !default;
+// scss-docs-end grid-breakpoints
+
+// 网格列
+//
+// 设置列数并指定间距宽度
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+
+$gutters: $spacers !default;
+
+// 组件
+//
+// 定义常用的填充、间距和半径大小以及其他更多属性。
+
+$border-width: 1px !default;
+$border-widths: (
+ 0: 0,
+ 1: 1px,
+ 2: 2px,
+ 3: 3px,
+ 4: 4px,
+ 5: 5px,
+ 6: 6px,
+ 7: 7px,
+ 8: 8px,
+) !default;
+
+$border-color: $gray-300 !default;
+
+$border-radius: 0.25rem !default;
+$border-radius-sm: 0.2rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-pill: 50rem !default;
+
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
+
+// 版式
+//
+// 正文、标题等的字体、行高和颜色
+
+// $font-size-root 会影响 `rem` 的值，该值也用于字体大小，填充和边距
+// $font-size-base 影响正文文本的字体大小
+$font-size-root: null !default;
+$font-size-base: 1rem !default; // 假设浏览器默认，通常为 `16px`
+$font-size-sm: $font-size-base * 0.875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+// scss-docs-start font-sizes
+$font-sizes: (
+ 1: $h1-font-size,
+ 2: $h2-font-size,
+ 3: $h3-font-size,
+ 4: $h4-font-size,
+ 5: $h5-font-size,
+ 6: $h6-font-size,
+) !default;
+// scss-docs-end font-sizes
+
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+ 1: 5rem,
+ 2: 4.5rem,
+ 3: 4rem,
+ 4: 3.5rem,
+ 5: 3rem,
+ 6: 2.5rem,
+) !default;
+
+$display-font-weight: 300 !default;
+$display-line-height: $headings-line-height !default;
+// scss-docs-end display-headings
+
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
+
+$small-font-size: 0.875em !default;
+
+$sub-sup-font-size: 0.75em !default;
+
+$text-muted: $gray-600 !default;
+
+// 卡片
+
+$card-padding-y: $spacer * 3.125 !default;
+$card-padding-x: $spacer * 6.25 !default;
+$card-color: $white !default;
+$card-bg: rgba(
+ $color: $gray-1000,
+ $alpha: 0.42,
+) !default;
+$card-width: map-get($grid-breakpoints, 'lg') !default;
+$card-height: map-get($grid-breakpoints, 'md') !default;

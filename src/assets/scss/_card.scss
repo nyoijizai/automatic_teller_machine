@@ -1,0 +1,38 @@
+.card {
+ overflow: hidden;
+ color: $card-color;
+ width: $card-width;
+ height: $card-height;
+ border-radius: $border-radius-lg;
+ background-color: $card-bg;
+ z-index: 10;
+
+ &::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('../img/bg.png');
+  filter: blur(12px);
+  margin: -(map-get($spacers, 4));
+  z-index: -1;
+ }
+
+ > * {
+  background-color: $card-bg;
+  padding: $card-padding-y $card-padding-x;
+
+  &:first-child {
+   padding-bottom: 0;
+   border-bottom: none;
+
+   @extend .d-print-none;
+  }
+ }
+}

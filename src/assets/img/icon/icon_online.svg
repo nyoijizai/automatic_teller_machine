@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.267" y1="0.083" x2="0.713" y2="0.852" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4eeca2"/>
+      <stop offset="0.586" stop-color="#00e3cc"/>
+      <stop offset="1" stop-color="#00e8c9"/>
+    </linearGradient>
+  </defs>
+  <g id="ic_online" transform="translate(-27.5 -30)">
+    <circle id="椭圆_177" data-name="椭圆 177" cx="9" cy="9" r="9" transform="translate(27.5 30)" fill="url(#linear-gradient)"/>
+    <path id="路径_906" data-name="路径 906" d="M0,2.968,2.635,4.975,6.238,0" transform="matrix(0.995, 0.105, -0.105, 0.995, 33.679, 36.071)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.26"/>
+  </g>
+</svg>

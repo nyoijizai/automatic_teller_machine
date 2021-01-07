@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="ic_off" transform="translate(-27.5 -40)">
+    <rect id="_25x25" data-name="25x25" width="25" height="25" transform="translate(27.5 40)" fill="#ff8787" opacity="0"/>
+    <g id="组_241" data-name="组 241" transform="translate(-253.125 -25.25)">
+      <g id="组_240" data-name="组 240">
+        <line id="直线_2" data-name="直线 2" x2="7.277" transform="translate(294.237 77.767)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="路径_911" data-name="路径 911" d="M299.393,75.646l2.12,2.12-2.12,2.12" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+      <path id="路径_912" data-name="路径 912" d="M299.375,82.75v1.092a1.413,1.413,0,0,1-1.408,1.408h-8.934a1.413,1.413,0,0,1-1.408-1.408V72.133a1.413,1.413,0,0,1,1.408-1.408h8.934a1.413,1.413,0,0,1,1.408,1.408v.95" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

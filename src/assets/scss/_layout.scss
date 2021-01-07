@@ -1,0 +1,11 @@
+.app {
+ background-image: url('../img/bg.png');
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+
+ > * {
+  @extend .bg-transparent;
+  color: $body-color;
+ }
+}

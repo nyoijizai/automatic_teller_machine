@@ -1,0 +1,24 @@
+$infix: '';
+
+// 遍历实用工具属性
+@each $key, $utility in $utilities {
+ // 可以使用 `false` 禁用，因此需要先检查该实用工具是否为映射
+ // 仅在启用媒体查询的状态下执行
+ @if type-of($utility) ==
+  'map' and
+  (map-get($utility, responsive) or $infix == '')
+ {
+  @include generate-utility($utility, $infix);
+ }
+}
+
+// 打印工具
+@media print {
+ @each $key, $utility in $utilities {
+  // 可以使用 `false` 禁用，因此需要先检查该实用工具是否为映射
+  // 然后，检查实用工具是否需要打印样式
+  @if type-of($utility) == 'map' and map-get($utility, print) == true {
+   @include generate-utility($utility, '-print');
+  }
+ }
+}
