@@ -15,7 +15,7 @@ module.exports = {
   process.env.NODE_ENV === 'production'
    ? 'pinter-dist'
    : process.env.NODE_ENV === 'test'
-   ? 'pinter_test/pinter/'
+   ? 'printer_test/pinter/'
    : 'dev',
  assetsDir: 'static',
  lintOnSave: process.env.NODE_ENV === 'development',
