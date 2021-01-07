@@ -75,9 +75,9 @@ export default {
       queryUserAuthCallBack(route).then((res) => {
        console.log(res);
        this.loading = false;
-       this.$message.success('登录成功');
-       this.$store.commit('Login', res.data);
-       this.$router.push({ path: '/' });
+       // this.$message.success('登录成功');
+       // this.$store.commit('Login', res.data);
+       // this.$router.push({ path: '/' });
       });
       // this.$message.error(res.msg);
      });
