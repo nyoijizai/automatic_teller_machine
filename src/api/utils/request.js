@@ -4,17 +4,20 @@ import { message } from 'ant-design-vue';
 // 创建实例
 const instance = axios.create({
  baseURL: '',
- timeout: 1000000,
+ timeout: 8888,
  headers: {
   'Content-Type': 'application/json',
   clientType: 'pc',
-  token: localStorage.getItem('Token'),
  },
 });
 
 // 请求拦截器
 instance.interceptors.request.use(
  function(config) {
+  let _token = localStorage.getItem('Token');
+
+  !!_token && (config.headers.token = localStorage.getItem('Token'));
+
   // 全局配置提示
   message.config({
    maxCount: 1,
@@ -30,7 +33,7 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
  function(response) {
-  console.log(response);
+  // console.log(response);
   if (response.data.code === 200 || response.status === 200) {
    return response.data.data || response.data;
   } else {
@@ -38,7 +41,8 @@ instance.interceptors.response.use(
   }
  },
  function(error) {
-  return message.error('服务异常，请联系管理员');
+  console.log(error);
+  return message.error('当前服务异常，请稍候再试');
  }
 );
 

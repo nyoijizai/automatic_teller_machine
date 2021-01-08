@@ -1,5 +1,5 @@
 <template>
- <List type="bill" :data="listData" />
+ <List type="bill" :loading="loading" :data="listData" />
 </template>
 
 <script>
@@ -13,13 +13,11 @@ export default {
  data() {
   return {
    listData: [],
-   // 荣誉层次层级
-   hierarchy: {
-    1: '国家级',
-    2: '省部级',
-    3: '市厅级',
-    4: '校级',
-    5: '院级',
+   loading: true,
+   // 分页
+   pagination: {
+    size: 20,
+    current: 0,
    },
   };
  },
@@ -30,14 +28,10 @@ export default {
  methods: {
   getData() {
    queryEcardBill().then((res) => {
-    this.listData = res;
-    // this.listData = res.studentAward.map((arg) => {
-    //  return {
-    //   date: arg.yearName,
-    //   title: arg.levelName,
-    //   level: this.hierarchy[arg.level],
-    //  };
-    // });
+    this.listData = res.records;
+    this.pagination.size = res.size;
+    this.pagination.current = res.current;
+    this.loading = false;
    });
   },
  },

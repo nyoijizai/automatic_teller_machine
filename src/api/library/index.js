@@ -1,19 +1,18 @@
-import { ecardServer } from '@/api/utils/base';
+import { base } from '@/api/utils/base';
 import { http } from '@/api/utils/request';
 
 // 图书借阅卡片信息
 function info() {
  return http.get(
-  `${ecardServer}/student/data/platform/book/borrow/reader/information`
+  `${base}/student/data/platform/book/borrow/reader/information`
  );
 }
 
-// 一卡通卡片交易记录
-function bill(data) {
- return http.get(`${ecardServer}/student/card/card/pageCardTransaction`, data);
+// 图书借阅记录
+function record(size, current, date) {
+ return http.get(
+  `${base}/student/data/platform/book/borrow/record?size=${size}&current=${current}&date=${date}`
+ );
 }
 
-export {
- info as queryReaderInfo,
- bill as queryEcardBill,
-};
+export { info as queryReaderInfo, record as queryReaderRecord };

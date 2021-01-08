@@ -11,16 +11,19 @@ export default {
   return {
    menuConfig: [
     {
+     identity: 'student',
      icon: 'icon_user_grade',
      path: '/transcript',
      label: '成绩单查询打印',
     },
     {
+     identity: 'student',
      icon: 'icon_user_book',
      path: '/education',
      label: '在读证明打印',
     },
     {
+     identity: 'student',
      icon: 'icon_user_glory',
      path: '/awards',
      label: '获奖证明打印',
@@ -37,6 +40,22 @@ export default {
     },
    ],
   };
+ },
+ // 计算属性
+ //  computed: {
+ //   computeMenuConfig: function() {
+ //    let _user = JSON.parse(localStorage.getItem('User'));
+ //
+ //    return this.menuConfig.map((args) => {
+ //     if (_user.identity === 1 && args.identity) {
+ //      console.log(args);
+ //      return args;
+ //     }
+ //    });
+ //   },
+ //  },
+ mounted() {
+  console.log(this.computeMenuConfig);
  },
 };
 </script>

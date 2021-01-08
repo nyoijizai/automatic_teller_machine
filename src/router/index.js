@@ -60,7 +60,7 @@ const routes = [
    },
    {
     path: 'reader',
-    meta: { title: '借阅证信息查询' },
+    meta: { title: '读者证信息' },
     component: () => import('@/views/Library/reader'),
    },
    {

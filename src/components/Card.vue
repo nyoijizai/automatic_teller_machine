@@ -68,11 +68,13 @@
     <a-month-picker
      :locale="locale"
      :style="{ width: '120px' }"
+     format="YYYY-MM"
      placeholder="按月查询"
+     @change="handleChangeMonth"
     />
    </section>
   </template>
-  <slot></slot>
+  <slot :monthPicker="month"></slot>
  </a-card>
 </template>
 
@@ -91,14 +93,16 @@ export default {
    },
    // 一卡通交易类型
    tradeTypeOptions: [],
+   month: '',
   };
  },
  mounted() {
   this.user = JSON.parse(localStorage.getItem('User'));
- },
- beforeUpdate() {
   this.$route.path === '/cashlog' && this.getTradeType();
  },
+ // beforeUpdate() {
+ //  this.$route.path === '/cashlog' && this.getTradeType();
+ // },
  methods: {
   // 获取一卡通交易类型
   getTradeType() {
@@ -109,6 +113,10 @@ export default {
      };
     });
    });
+  },
+  // 选择月份
+  handleChangeMonth(date, dateString) {
+   this.month = dateString;
   },
   // 打印指定页面
   handlePrint() {

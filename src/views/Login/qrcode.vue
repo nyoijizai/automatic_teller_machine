@@ -22,7 +22,7 @@ export default {
     scope: 'snsapi_login',
     appid: 'wxcd5315c3da003f8d',
     redirect_uri:
-     'https://authserver.tzu.edu.cn//weixin/callback?service=http://192.168.3.233:8080',
+     'https://authserver.tzu.edu.cn//weixin/callback?service=http://localhost:8080',
     state: '',
     style: 'white',
     href: '',

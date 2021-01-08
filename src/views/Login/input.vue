@@ -46,7 +46,11 @@
 </template>
 
 <script>
-import { queryUserAuth, queryUserAuthCallBack } from '@/api/login';
+import {
+ queryUserInfo,
+ queryUserAuth,
+ queryUserAuthCallBack,
+} from '@/api/login';
 
 export default {
  data() {
@@ -73,13 +77,16 @@ export default {
      this.loading = true;
      queryUserAuth(this.loginForm).then((route) => {
       queryUserAuthCallBack(route).then((res) => {
-       console.log(res);
        this.loading = false;
-       // this.$message.success('登录成功');
-       // this.$store.commit('Login', res.data);
-       // this.$router.push({ path: '/' });
+       console.log(res);
       });
-      // this.$message.error(res.msg);
+      // 模拟测试登录
+      // queryUserInfo(this.loginForm.username).then((res) => {
+      //  console.log(res);
+      //  this.$message.success('登录成功');
+      //  this.$store.commit('Login', res);
+      //  this.$router.push({ path: '/' });
+      // });
      });
     } else {
      return false;
