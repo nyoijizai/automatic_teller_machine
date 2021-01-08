@@ -78,15 +78,10 @@ export default {
      queryUserAuth(this.loginForm).then((route) => {
       queryUserAuthCallBack(route).then((res) => {
        this.loading = false;
-       console.log(res);
+       this.$message.success('登录成功');
+       this.$store.commit('Login', res);
+       this.$router.push({ path: '/' });
       });
-      // 模拟测试登录
-      // queryUserInfo(this.loginForm.username).then((res) => {
-      //  console.log(res);
-      //  this.$message.success('登录成功');
-      //  this.$store.commit('Login', res);
-      //  this.$router.push({ path: '/' });
-      // });
      });
     } else {
      return false;

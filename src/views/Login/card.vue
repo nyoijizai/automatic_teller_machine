@@ -7,8 +7,7 @@
     class="mb-7"
     :size="160"
     shape="square"
-    :src="require('@/assets/img/icon/icon_login_card.png')
-    "
+    :src="require('@/assets/img/icon/icon_login_card.png')"
    />
    <span>请在读卡器上刷卡验证身份</span>
   </div>
@@ -47,23 +46,30 @@ export default {
   // 寻找卡片
   findCard(key) {
    let _timer = setInterval(() => {
-    this.$message.loading('请将卡片放置在读卡器上', 2).then(() => {
-     unionFindCard(key).then((findRes) => {
-      if ('cardphyid' in findRes) {
-       this.$message.loading('读卡中', 3).then(() => {
-        unionFetchCard(key, findRes.cardphyid).then((fetchRes) => {
-         if ('CF_STUEMPNO' in fetchRes) {
-          clearInterval(_timer);
-          this.$message.success('读卡成功');
-          this.login(fetchRes.CF_STUEMPNO);
-         }
+    if (this.$route.path === '/login/unionCard') {
+     this.$message.loading('请将卡片放置在读卡器上', 2).then(() => {
+      unionFindCard(key).then((findRes) => {
+       console.log(this.$route.path);
+       if ('cardphyid' in findRes) {
+        console.log(1, this.$route.param);
+        this.$message.loading('读卡中', 3).then(() => {
+         unionFetchCard(key, findRes.cardphyid).then((fetchRes) => {
+          if ('CF_STUEMPNO' in fetchRes) {
+           clearInterval(_timer);
+           this.$message.success('读卡成功');
+           this.login(fetchRes.CF_STUEMPNO);
+          }
+         });
         });
-       });
-      } else {
-       return false;
-      }
+       } else {
+        return false;
+       }
+      });
      });
-    });
+    } else {
+     clearInterval(_timer);
+     return false;
+    }
    }, 6000);
   },
   // 登录
