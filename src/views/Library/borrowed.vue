@@ -9,7 +9,7 @@ export default {
  components: {
   List: () => import('@/components/List'),
  },
- props: { monthPicker: { type: String, default: '' } },
+ props: { date: { type: String, default: '' } },
  // 初始化数据
  data() {
   return {
@@ -22,6 +22,12 @@ export default {
    },
   };
  },
+ watch: {
+  date: function(value) {
+   this.pagination.date = value;
+   this.getData();
+  },
+ },
  // beforeUpdate() {
  //  console.log(this.monthPicker);
  // },
@@ -31,14 +37,16 @@ export default {
  },
  methods: {
   getData() {
-   queryReaderRecord(this.pagination.size, this.pagination.current).then(
-    (res) => {
-     this.listData = res.records;
-     this.pagination.size = res.size;
-     this.pagination.current = res.current;
-     this.loading = false;
-    }
-   );
+   queryReaderRecord(
+    this.pagination.size,
+    this.pagination.current,
+    this.pagination.date
+   ).then((res) => {
+    this.listData = res.records;
+    this.pagination.size = res.size;
+    this.pagination.current = res.current;
+    this.loading = false;
+   });
   },
  },
 };

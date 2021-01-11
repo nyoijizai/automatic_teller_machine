@@ -9,6 +9,10 @@ export default {
  components: {
   List: () => import('@/components/List'),
  },
+ props: {
+  date: { type: String, default: '' },
+  type: { type: String, default: '' },
+ },
  // 初始化数据
  data() {
   return {
@@ -21,13 +25,23 @@ export default {
    },
   };
  },
+ watch: {
+  date: function(value) {
+   this.pagination.transDate = value;
+   this.getData();
+  },
+  type: function(value) {
+   this.pagination.transDesc = value;
+   this.getData();
+  },
+ },
  // 挂载实例时执行
  mounted() {
   this.getData();
  },
  methods: {
   getData() {
-   queryEcardBill().then((res) => {
+   queryEcardBill(this.pagination).then((res) => {
     this.listData = res.records;
     this.pagination.size = res.size;
     this.pagination.current = res.current;

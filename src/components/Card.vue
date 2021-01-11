@@ -56,6 +56,7 @@
      v-if="$route.path === '/cashlog'"
      :style="{ width: '120px' }"
      placeholder="交易类型"
+     @change="handleChangeType"
     >
      <a-select-option
       :key="typeIndex"
@@ -74,7 +75,7 @@
     />
    </section>
   </template>
-  <slot :monthPicker="month"></slot>
+  <slot name="content" :scope="filterForm"></slot>
  </a-card>
 </template>
 
@@ -93,7 +94,10 @@ export default {
    },
    // 一卡通交易类型
    tradeTypeOptions: [],
-   month: '',
+   filterForm: {
+    type: '',
+    month: '',
+   },
   };
  },
  mounted() {
@@ -116,7 +120,11 @@ export default {
   },
   // 选择月份
   handleChangeMonth(date, dateString) {
-   this.month = dateString;
+   this.filterForm.month = dateString;
+  },
+  // 选择交易类型
+  handleChangeType(typeString) {
+   this.filterForm.type = typeString;
   },
   // 打印指定页面
   handlePrint() {

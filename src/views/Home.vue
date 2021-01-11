@@ -3,7 +3,9 @@
   class="home d-flex align-items-center justify-content-center"
  >
   <Card>
-   <router-view />
+   <template slot="content" slot-scope="{ scope }">
+    <router-view :date="scope.month" :type="scope.type" />
+   </template>
   </Card>
  </a-layout-content>
 </template>
