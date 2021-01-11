@@ -27,7 +27,7 @@ export default {
  },
  watch: {
   date: function(value) {
-   this.pagination.transDate = value;
+   this.pagination.transDate = value.replace('-', '');
    this.getData();
   },
   type: function(value) {
