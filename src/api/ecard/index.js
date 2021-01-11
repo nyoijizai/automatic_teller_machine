@@ -13,7 +13,9 @@ function type() {
 
 // 一卡通卡片交易记录
 function bill(data) {
- return http.get(`${base}/student/card/card/pageCardTransaction`, data);
+ return http.get(`${base}/student/card/card/pageCardTransaction`, {
+  params: data,
+ });
 }
 
 export {
