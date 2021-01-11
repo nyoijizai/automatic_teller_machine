@@ -1,5 +1,5 @@
 <template>
- <Menu :data="menuConfig" />
+ <Menu :data="computeMenuConfig" />
 </template>
 
 <script>
@@ -42,20 +42,21 @@ export default {
   };
  },
  // 计算属性
- //  computed: {
- //   computeMenuConfig: function() {
- //    let _user = JSON.parse(localStorage.getItem('User'));
- //
- //    return this.menuConfig.map((args) => {
- //     if (_user.identity === 1 && args.identity) {
- //      console.log(args);
- //      return args;
- //     }
- //    });
- //   },
- //  },
- mounted() {
-  console.log(this.computeMenuConfig);
+ computed: {
+  computeMenuConfig: function() {
+   let _user = JSON.parse(localStorage.getItem('User'));
+   const _filter = this.menuConfig;
+
+   if (_user.identity === 1) {
+    return this.menuConfig.filter((arg) => {
+     if (!arg.identity) {
+      return arg;
+     }
+    });
+   } else {
+    return this.menuConfig;
+   }
+  },
  },
 };
 </script>

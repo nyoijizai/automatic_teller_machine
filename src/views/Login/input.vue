@@ -76,12 +76,17 @@ export default {
     if (valid) {
      this.loading = true;
      queryUserAuth(this.loginForm).then((route) => {
-      queryUserAuthCallBack(route).then((res) => {
-       this.loading = false;
-       this.$message.success('登录成功');
-       this.$store.commit('Login', res);
-       this.$router.push({ path: '/' });
-      });
+      if (typeof route === 'string') {
+       queryUserAuthCallBack(route).then((res) => {
+        this.$message.success('登录成功');
+        this.$store.commit('Login', res);
+        this.$router.push({ path: '/' });
+       });
+      } else {
+       this.$message.error(route.msg);
+      }
+      this.loading = false;
+      return false;
      });
     } else {
      return false;

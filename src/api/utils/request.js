@@ -41,8 +41,8 @@ instance.interceptors.response.use(
   }
  },
  function(error) {
-  console.log(error);
-  return message.error('当前服务异常，请稍候再试');
+  message.error('当前服务异常，请稍候再试');
+  return error;
  }
 );
 
