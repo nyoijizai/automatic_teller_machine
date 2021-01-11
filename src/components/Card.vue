@@ -15,7 +15,7 @@
   <template slot="title">
    <section class="d-flex align-items-center">
     <a-avatar
-     class="mr-3"
+     class="mr-3 flex-shrink-0"
      :size="67"
      slot="avatar"
      :src="
