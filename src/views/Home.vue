@@ -4,7 +4,11 @@
  >
   <Card>
    <template slot="content" slot-scope="{ scope }">
-    <router-view :date="scope.month" :type="scope.type" />
+    <router-view
+     :date="scope.month"
+     :type="scope.type"
+     :studentNumber="scope.studentNumber"
+    />
    </template>
   </Card>
  </a-layout-content>
