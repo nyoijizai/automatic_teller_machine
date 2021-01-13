@@ -102,7 +102,9 @@ export default {
    }, 1000);
   },
   // 倒计时
-  handleTimer(time) {},
+  handleTimer(time) {
+   console.log(process.env.VUE_APP_IPV4, process.env.VUE_APP_MAC);
+  },
  },
 };
 </script>
