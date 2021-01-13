@@ -15,10 +15,13 @@
 
   @extend .p-0;
  }
- .ant-descriptions-view,
- .ant-descriptions-row,
- .ant-descriptions-item-label,
- .ant-descriptions-item-content {
-  border: none !important;
+ 
+ .table-meta {
+  .ant-descriptions-view,
+  .ant-descriptions-row,
+  .ant-descriptions-item-label,
+  .ant-descriptions-item-content {
+   border: none !important;
+  }
  }
 }

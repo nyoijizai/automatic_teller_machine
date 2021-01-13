@@ -8,6 +8,10 @@ $utilities: map-merge(
    property: float,
    values: left right none,
   ),
+  'overflow': (
+   property: overflow,
+   values: auto hidden visible scroll,
+  ),
   'display': (
    responsive: true,
    print: true,
