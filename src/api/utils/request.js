@@ -33,7 +33,6 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
  function(response) {
-  // console.log(response);
   if (response.data.code === 200 || response.status === 200) {
    return response.data.data || response.data;
   } else {
