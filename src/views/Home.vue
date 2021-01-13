@@ -7,7 +7,6 @@
     <router-view
      :date="scope.month"
      :type="scope.type"
-     :studentNumber="scope.studentNumber"
     />
    </template>
   </Card>

@@ -97,13 +97,11 @@ export default {
    filterForm: {
     type: '',
     month: '',
-    studentNumber: '',
    },
   };
  },
  mounted() {
   this.user = JSON.parse(localStorage.getItem('User'));
-  this.filterForm.studentNumber = this.user.userCode;
   this.$route.path === '/cashlog' && this.getTradeType();
  },
  // beforeUpdate() {
