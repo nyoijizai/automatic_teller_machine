@@ -19,8 +19,14 @@ function loginByAccountCallBack(link) {
  return http.get(`${base}/${link}`);
 }
 
+// 获取打印机状态
+function checkPrintState(form) {
+ return http.post(`${base}/platform/printer/checkPrint`, form);
+}
+
 export {
  loginByID as queryUserInfo,
  loginByAccount as queryUserAuth,
  loginByAccountCallBack as queryUserAuthCallBack,
+ checkPrintState as checkPrintState,
 };

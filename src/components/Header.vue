@@ -75,6 +75,7 @@
 
 <script>
 import moment from 'moment';
+import { checkPrintState } from "@/api/login/"
 export default {
  name: 'Header',
  data() {
@@ -97,6 +98,14 @@ export default {
   // 报时
   handleTimeChime() {
    setTimeout(() => {
+    if (process.env.VUE_APP_MAC && this.$store.state.hasLogin) {
+     checkPrintState({Mac: process.env.VUE_APP_MAC}).then(res => {
+      if (res.data != 1) {
+        this.$message.error("当前设备已离线！")
+        this.handleLogOut()
+      }
+     })
+    }
     this.currentTime = moment().format('YYYY 年 MM 月 DD 日 HH:mm:ss');
     this.handleTimeChime();
    }, 1000);
