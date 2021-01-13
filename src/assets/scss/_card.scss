@@ -24,13 +24,19 @@
   z-index: -1;
  }
 
+ &-xl {
+  > * {
+   padding: $spacer !important;
+  }
+ }
+
  > * {
   background-color: $card-bg;
   padding: $card-padding-y $card-padding-x;
 
   &:first-child {
-   padding-bottom: 0;
-   border-bottom: none;
+   padding-bottom: 0 !important;
+   border-bottom: none !important;
 
    @extend .d-print-none;
   }

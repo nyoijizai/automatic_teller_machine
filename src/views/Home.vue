@@ -2,12 +2,9 @@
  <a-layout-content
   class="home d-flex align-items-center justify-content-center"
  >
-  <Card>
+  <Card :size="$route.meta.size">
    <template slot="content" slot-scope="{ scope }">
-    <router-view
-     :date="scope.month"
-     :type="scope.type"
-    />
+    <router-view :date="scope.month" :type="scope.type" />
    </template>
   </Card>
  </a-layout-content>

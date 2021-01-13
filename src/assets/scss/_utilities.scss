@@ -12,6 +12,14 @@ $utilities: map-merge(
    property: overflow,
    values: auto hidden visible scroll,
   ),
+  'overflow-x': (
+   property: overflow-x,
+   values: auto hidden visible scroll,
+  ),
+  'overflow-y': (
+   property: overflow-y,
+   values: auto hidden visible scroll,
+  ),
   'display': (
    responsive: true,
    print: true,

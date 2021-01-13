@@ -1,6 +1,7 @@
 <template>
  <a-card
   class="card d-flex flex-column"
+  :class="renderSize"
   :bordered="false"
   :loading="loading"
   :headStyle="{ flexShrink: 0, marginBottom: 0, borderBottom: 'none' }"
@@ -85,6 +86,12 @@ import locale from 'ant-design-vue/es/date-picker/locale/zh_CN';
 
 export default {
  name: 'Card',
+ props: {
+  size: {
+   type: String,
+   default: '',
+  },
+ },
  data() {
   return {
    locale,
@@ -99,6 +106,13 @@ export default {
     month: '',
    },
   };
+ },
+ computed: {
+  renderSize: function() {
+   if (this.size === 'large') {
+    return ['w-100', 'h-100', 'card-xl'];
+   }
+  },
  },
  mounted() {
   this.user = JSON.parse(localStorage.getItem('User'));

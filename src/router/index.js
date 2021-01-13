@@ -25,17 +25,17 @@ const routes = [
    },
    {
     path: 'archive',
-    meta: { title: '成绩档案表', print: true },
+    meta: { title: '成绩档案表', print: true, size: 'large' },
     component: () => import('@/views/Transcript/archive'),
    },
    {
     path: 'original',
-    meta: { title: '成绩单(原始)', print: true },
+    meta: { title: '成绩单(原始)', print: true, size: 'large' },
     component: () => import('@/views/Transcript/original'),
    },
    {
     path: 'valid',
-    meta: { title: '成绩单(有效)', print: true },
+    meta: { title: '成绩单(有效)', print: true, size: 'large' },
     component: () => import('@/views/Transcript/valid'),
    },
    {
