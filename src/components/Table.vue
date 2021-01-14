@@ -64,7 +64,7 @@
     </template>
    </a-descriptions>
    <!-- 成绩表格 -->
-   <div class="table">
+   <div v-if="tableData.length" class="table">
     <table class="w-100 fs-8 border text-print-dark" border="1">
      <thead class="text-print-black-50">
       <tr class="text-center">
@@ -96,12 +96,19 @@
         v-for="(column, columnIndex) in renderTableColumns"
        >
         <span v-if="spanIndex === 0">{{ row[`${column.key}`] }}</span>
-        <span>{{ span[`${column.key}`] }}</span>
+        <span v-if="column.key !== 'schoolYearSemester'">
+         {{ span[`${column.key}`] }}
+        </span>
        </td>
       </tr>
      </tbody>
     </table>
    </div>
+   <a-empty
+    v-else
+    description="暂无数据"
+    class="h-100 d-flex flex-column align-items-center justify-content-center"
+   />
   </a-skeleton>
  </section>
 </template>
