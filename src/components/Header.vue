@@ -45,16 +45,14 @@
      v-if="$store.state.hasLogin"
      class="mr-5"
      placement="bottom"
-     ok-text="立即退出（180 秒）"
+     ok-text="立即退出"
      cancel-text="我知道了"
      @confirm="handleLogOut"
     >
      <template slot="title">
-      <p>您的登录状态将被重置</p>
+      <p>当前设备在线</p>
       <small>
-       为了确保您的个人信息安全，如果您登录后 3 分钟内一直未执行操作
-       <br />
-       我们将强制清空当前设备的浏览记录，并将您的账号登出
+       当设备处于离线或断线状态时，您将无法执行操作
       </small>
      </template>
      <a-button ghost type="link" @click="handleTimer">
@@ -98,16 +96,18 @@ export default {
   // 报时
   handleTimeChime() {
    setTimeout(() => {
-    if (process.env.VUE_APP_MAC && this.$store.state.hasLogin) {
-     checkPrintState({ Mac: process.env.VUE_APP_MAC.toUpperCase() }).then(
-      (res) => {
-       if (res !== 1) {
-        this.$message.error('当前设备已离线！');
-        this.handleLogOut();
-       }
-      }
-     );
-    }
+    // 检测当前设备是否在线
+    // if (process.env.VUE_APP_MAC && this.$store.state.hasLogin) {
+    //  checkPrintState({ Mac: process.env.VUE_APP_MAC.toUpperCase() }).then(
+    //   (res) => {
+    //    if (res !== 1) {
+    //     this.$message.error('当前设备已离线！');
+    //     this.handleLogOut();
+    //    }
+    //   }
+    //  );
+    // }
+
     this.currentTime = moment().format('YYYY 年 MM 月 DD 日 HH:mm:ss');
     this.handleTimeChime();
    }, 1000);

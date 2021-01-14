@@ -28,6 +28,61 @@ $utilities: map-merge(
    values: inline inline-block block grid table table-row table-cell flex
     inline-flex none,
   ),
+  'position': (
+   property: position,
+   values: static relative absolute fixed sticky,
+  ),
+  'border': (
+   property: border,
+   values: (
+    null: $border-width solid $border-color,
+    0: 0,
+   ),
+  ),
+  'border-top': (
+   property: border-top,
+   values: (
+    null: $border-width solid $border-color,
+    0: 0,
+   ),
+  ),
+  'border-right': (
+   property: border-right,
+   values: (
+    null: $border-width solid $border-color,
+    0: 0,
+   ),
+  ),
+  'border-bottom': (
+   property: border-bottom,
+   values: (
+    null: $border-width solid $border-color,
+    0: 0,
+   ),
+  ),
+  'border-left': (
+   property: border-left,
+   values: (
+    null: $border-width solid $border-color,
+    0: 0,
+   ),
+  ),
+  'border-color': (
+   property: border-color,
+   class: border,
+   values:
+    map-merge(
+     $theme-colors,
+     (
+      'white': $white,
+     )
+    ),
+  ),
+  'border-width': (
+   property: border-width,
+   class: border,
+   values: $border-widths,
+  ),
   // 尺寸
    'width':
    (
@@ -316,6 +371,7 @@ $utilities: map-merge(
   ),
   'color': (
    property: color,
+   print: true,
    class: text,
    values:
     map-merge(

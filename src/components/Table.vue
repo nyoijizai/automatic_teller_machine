@@ -1,6 +1,7 @@
 <template>
- <section class="transcript overflow-y-scroll h-100 rounded-3 bg-body">
+ <section class="transcript overflow-y-scroll h-100">
   <a-skeleton active :loading="spinning">
+   <!-- 元数据 -->
    <a-descriptions
     class="d-none d-print-block"
     :column="10"
@@ -62,15 +63,45 @@
      </a-descriptions-item>
     </template>
    </a-descriptions>
-
-   <a-empty
-    class="h-100 d-flex d-print-none flex-column align-items-center justify-content-center"
-   >
-    <span class="text-black-50" slot="description">
-     暂无数据
-    </span>
-   </a-empty>
-   <!-- 成绩单 -->
+   <!-- 成绩表格 -->
+   <div class="table">
+    <table class="w-100 fs-8 border text-print-dark" border="1">
+     <thead class="text-print-black-50">
+      <tr class="text-center">
+       <td
+        :key="columnIndex"
+        :rowspan="column.rowspan"
+        :colspan="column.colspan"
+        v-for="(column, columnIndex) in tableColumns"
+       >
+        {{ column.title }}
+       </td>
+      </tr>
+      <tr v-if="renderTableChildColumns.length" class="text-center">
+       <td
+        :key="childColumnIndex"
+        :rowspan="childColumn.rowspan"
+        :colspan="childColumn.colspan"
+        v-for="(childColumn, childColumnIndex) in renderTableChildColumns"
+       >
+        {{ childColumn.title }}
+       </td>
+      </tr>
+     </thead>
+     <tbody :key="rowIndex" v-for="(row, rowIndex) in tableData">
+      <tr :key="spanIndex" v-for="(span, spanIndex) in row.list">
+       <td
+        :class="column.align ? `text-${column.align}` : 'text-center'"
+        :key="columnIndex"
+        v-for="(column, columnIndex) in renderTableColumns"
+       >
+        <span v-if="spanIndex === 0">{{ row[`${column.key}`] }}</span>
+        <span>{{ span[`${column.key}`] }}</span>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
   </a-skeleton>
  </section>
 </template>
@@ -92,6 +123,31 @@ export default {
   'table-data': Array,
   'table-columns': Array,
  },
+ computed: {
+  renderTableColumns: function() {
+   let _arr = Array.from(this.tableColumns);
+   const _num = {};
+
+   _arr.filter((arg, sort) => {
+    if (Array.isArray(arg.children)) {
+     _num.sub = sort;
+    }
+   });
+
+   _arr.splice(_num.sub, 1, ...this.renderTableChildColumns);
+
+   return _arr;
+  },
+  renderTableChildColumns: function() {
+   let _child = this.tableColumns.filter((arg) => {
+    return arg.children;
+   });
+
+   if (!!_child[0].children) {
+    return _child[0].children;
+   }
+  },
+ },
 };
 </script>
 
@@ -109,11 +165,6 @@ export default {
 
  > * {
   font-size: 12px;
-
-  // &:last-child {
-  //  max-width: 100px;
-  //  white-space: pre-wrap;
-  // }
  }
 }
 </style>

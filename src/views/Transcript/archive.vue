@@ -4,6 +4,8 @@
   title="泰州学院学生成绩档案表"
   :spinning="spinning"
   :user-scope="userData"
+  :table-data="tableData"
+  :table-columns="tableColumns"
  />
 </template>
 
@@ -20,13 +22,8 @@ export default {
    userData: {},
    tableData: [],
    spinning: true,
-   // 荣誉层次层级
+   // 表格配置项
    tableColumns: [
-    {
-     dataIndex: 'schoolYearSemester',
-     key: 'schoolYearSemester',
-     scopedSlots: { customRender: 'schoolYearSemester' },
-    },
     { title: '课程/环节', dataIndex: 'courseLink', key: 'courseLink' },
     { title: '类别', dataIndex: 'category', key: 'category' },
     { title: '学分', dataIndex: 'credit', key: 'credit' },
