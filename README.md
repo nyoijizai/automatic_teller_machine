@@ -1,5 +1,7 @@
-# automatic_teller_machine
+# 自助查询打印系统
+# Automatic teller machine(ATM)
 
+## 项目设置
 ## Project setup
 ```
 yarn install
@@ -14,6 +16,3 @@ yarn serve
 ```
 yarn build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
