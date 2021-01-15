@@ -1,5 +1,5 @@
 <template>
- <section class="transcript overflow-y-scroll h-100">
+ <section class="transcript overflow-y-auto h-100">
   <a-skeleton active :loading="spinning">
    <!-- 元数据 -->
    <a-descriptions
@@ -77,7 +77,10 @@
         {{ column.title }}
        </td>
       </tr>
-      <tr v-if="renderTableChildColumns.length" class="text-center">
+      <tr
+       v-if="renderTableChildColumns && renderTableChildColumns.length"
+       class="text-center"
+      >
        <td
         :key="childColumnIndex"
         :rowspan="childColumn.rowspan"
@@ -89,6 +92,11 @@
       </tr>
      </thead>
      <tbody :key="rowIndex" v-for="(row, rowIndex) in tableData">
+      <tr v-if="type === 'archive'">
+       <td class="text-center" :rowspan="1" :colspan="5">
+        {{ row.schoolYearSemesterGrade }}
+       </td>
+      </tr>
       <tr :key="spanIndex" v-for="(span, spanIndex) in row.list">
        <td
         :class="column.align ? `text-${column.align}` : 'text-center'"
@@ -141,7 +149,7 @@ export default {
     }
    });
 
-   _arr.splice(_num.sub, 1, ...this.renderTableChildColumns);
+   _num.sub && _arr.splice(_num.sub, 1, ...this.renderTableChildColumns);
 
    return _arr;
   },
@@ -150,9 +158,9 @@ export default {
     return arg.children;
    });
 
-   if (!!_child[0].children) {
+   if (!!_child[0] && !!_child[0].children) {
     return _child[0].children;
-   }
+   } else return _child;
   },
  },
 };

@@ -2,7 +2,7 @@
  <Table
   type="archive"
   title="泰州学院学生成绩档案表"
-  :spinning="spinning"
+  :loading="spinning"
   :user-scope="userData"
   :table-data="tableData"
   :table-columns="tableColumns"
@@ -24,7 +24,12 @@ export default {
    spinning: true,
    // 表格配置项
    tableColumns: [
-    { title: '课程/环节', dataIndex: 'courseLink', key: 'courseLink' },
+    {
+     title: '课程/环节',
+     dataIndex: 'courseLink',
+     key: 'courseLink',
+     align: 'left',
+    },
     { title: '类别', dataIndex: 'category', key: 'category' },
     { title: '学分', dataIndex: 'credit', key: 'credit' },
     { title: '成绩', dataIndex: 'grade', key: 'grade' },
@@ -42,7 +47,6 @@ export default {
 
    queryTranscriptArchive(_user.userCode).then((res) => {
     this.spinning = !this.spinning;
-
     if (typeof res === 'object') {
      this.userData = res.studentInfoVO;
      this.tableData = res.studentScoreArchives;
